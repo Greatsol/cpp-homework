@@ -4,7 +4,12 @@
 #include <limits>
 
 
-double check_for_null(double coef);
+double check_for_null(double coef) {
+    if (abs(coef) < std::numeric_limits<double>::epsilon()) {
+        coef = 0;
+    }
+    return coef;
+}
 
 
 int main() {
@@ -72,12 +77,4 @@ int main() {
     }
 
     return 0;
-}
-
-
-double check_for_null(double coef) {
-    if (abs(coef) < std::numeric_limits<double>::epsilon()) {
-        coef = 0;
-    }
-    return coef;
 }
