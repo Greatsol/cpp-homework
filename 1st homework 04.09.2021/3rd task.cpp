@@ -27,7 +27,7 @@ int main() {
             std::cout << "x = " << -coef_c / coef_b;
         }
         else if (not is_equal(coef_c, 0.0)) {
-            std::cout << "c";
+            std::cout << "No solutions.";
         }
         else {
             std::cout << "Unlimited number of solutions.";
@@ -43,10 +43,10 @@ int main() {
     else if (D > 0) {
         x1 = (-coef_b + sqrt(D)) / (2 * coef_a);
         x2 = (-coef_b - sqrt(D)) / (2 * coef_a);
-        std::cout << "x1 = " << x1 << '\n' << "x2 = " << x2 << '\n';
+        std::cout << "x1 = " << x1 << '\n' << "x2 = " << x2;
     }
     else {
-        std::cout << "No solutions." << '\n';
+        std::cout << "No solutions.";
     }
 
     return 0;
