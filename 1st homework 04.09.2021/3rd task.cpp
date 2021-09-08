@@ -23,49 +23,30 @@ int main() {
 
 
     if (is_equal(coef_a, 0.0)) {
-        if (is_equal(coef_b, 0.0) || is_equal(coef_c, 0.0)) {
-            std::cout << "Unlimited number of solutions.";
-        }
-        else if (is_equal(coef_b, 0.0)) {
-            std::cout << "No solution.";
-        }
-        else if (is_equal(coef_c, 0.0)) {
-            std::cout << "x = 0";
-        }
-        else {
+        if (not is_equal(coef_b, 0.0)) {
             std::cout << "x = " << -coef_c / coef_b;
         }
-    }
-    else if (is_equal(coef_b, 0.0)) {
-        if (is_equal(coef_c, 0.0)) {
-            std::cout << "x = 0";
-        }
-        else if (coef_c < 0) {
-            std::cout << "x = +-" << sqrt(-(coef_c / coef_a));
+        else if (not is_equal(coef_c, 0.0)) {
+            std::cout << "c";
         }
         else {
-            std::cout << "No solution.";
+            std::cout << "Unlimited number of solutions.";
         }
     }
-    else if (is_equal(coef_c, 0.0)) {
-        x1 = 0;
-        x2 = -coef_b / coef_a;
-        std::cout << "x1 = " << x1 << ", x2 = " << x2;
+
+    double D = coef_b * coef_b - 4 * coef_a * coef_c;
+
+    if (is_equal(D, 0.0)) {
+        x1 = -coef_b / (2 * coef_a);
+        std::cout << "x = " << x1;
+    }
+    else if (D > 0) {
+        x1 = (-coef_b + sqrt(D)) / (2 * coef_a);
+        x2 = (-coef_b - sqrt(D)) / (2 * coef_a);
+        std::cout << "x1 = " << x1 << '\n' << "x2 = " << x2 << '\n';
     }
     else {
-        double D;
-        D = coef_b * coef_b - 4 * coef_a * coef_c;
-        if (is_equal(D, 0.0)) {
-            std::cout << "x1 = x2 = " << -coef_b / (2 * coef_c);
-        }
-        else if (D > 0) {
-            x1 = (-coef_b + sqrt(D)) / (2 * coef_a);
-            x2 = (-coef_b - sqrt(D)) / (2 * coef_a);
-            std::cout << "x1 = " << x1 << ", x2 = " << x2;
-        }
-        else {
-            std::cout << "No solution.";
-        }
+        std::cout << "No solutions." << '\n';
     }
 
     return 0;
