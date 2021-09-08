@@ -33,20 +33,22 @@ int main() {
             std::cout << "Unlimited number of solutions.";
         }
     }
-
-    double D = coef_b * coef_b - 4 * coef_a * coef_c;
-
-    if (is_equal(D, 0.0)) {
-        x1 = -coef_b / (2 * coef_a);
-        std::cout << "x = " << x1;
-    }
-    else if (D > 0) {
-        x1 = (-coef_b + sqrt(D)) / (2 * coef_a);
-        x2 = (-coef_b - sqrt(D)) / (2 * coef_a);
-        std::cout << "x1 = " << x1 << '\n' << "x2 = " << x2;
-    }
     else {
-        std::cout << "No solutions.";
+
+        double D = coef_b * coef_b - 4.0 * coef_a * coef_c;
+
+        if (is_equal(D, 0.0)) {
+            x1 = -coef_b / (2.0 * coef_a);
+            std::cout << "x = " << x1;
+        }
+        else if (D > 0) {
+            x1 = (-coef_b + sqrt(D)) / (2 * coef_a);
+            x2 = (-coef_b - sqrt(D)) / (2 * coef_a);
+            std::cout << "x1 = " << x1 << '\n' << "x2 = " << x2;
+        }
+        else {
+            std::cout << "No solutions.";
+        }
     }
 
     return 0;
