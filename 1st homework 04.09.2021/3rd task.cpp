@@ -42,8 +42,8 @@ int main() {
             std::cout << "x = " << x1;
         }
         else if (D > 0) {
-            x1 = (-coef_b + sqrt(D)) / (2 * coef_a);
-            x2 = (-coef_b - sqrt(D)) / (2 * coef_a);
+            x1 = (-coef_b + sqrt(D)) / (2.0 * coef_a);
+            x2 = (-coef_b - sqrt(D)) / (2.0 * coef_a);
             std::cout << "x1 = " << x1 << '\n' << "x2 = " << x2;
         }
         else {
