@@ -1,7 +1,7 @@
 #include <iostream>
 
 
-enum Months {
+enum class Months {
     January = 1,
     February,
     March,
@@ -19,23 +19,23 @@ enum Months {
 
 int day_in_month(int month, bool flag) {
     int day;
-	switch (month) {
-        case January:
-        case March:
-        case May:
-        case July:
-        case August:
-        case October:
-        case December:
+	switch (Months(month)) {
+        case Months::January:
+        case Months::March:
+        case Months::May:
+        case Months::July:
+        case Months::August:
+        case Months::October:
+        case Months::December:
             day = 31;
             break;
-        case April:
-        case June:
-        case September:
-        case November:
+        case Months::April:
+        case Months::June:
+        case Months::September:
+        case Months::November:
             day = 30;
             break;
-        case February:
+        case Months::February:
             if (flag) {
                 day = 29;
             }
