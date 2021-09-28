@@ -19,7 +19,7 @@ enum class Months {
 
 int day_in_month(int month, bool flag) {
     int day;
-	switch (Months(month)) {
+	switch (static_cast<Months>(month)) {
         case Months::January:
         case Months::March:
         case Months::May:
