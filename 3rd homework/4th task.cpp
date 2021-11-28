@@ -3,9 +3,8 @@
 #include <functional>
 
 
-int run_functions(std::function <double(double, double)> function, double x, double y) {
-	std::cout << function(x, y) << std::endl;
-	return 0;
+double run_functions(std::function <double(double, double)> function, double x, double y) {
+	return function(x, y);
 }
 
 
@@ -26,8 +25,7 @@ int main() {
 	};
 
 	std::cout << "Lambda functions results:" << std::endl;
-	for (std::function <double(double, double)> func : v)
-	{
-		run_functions(func, x, y);
+	for (std::function <double(double, double)> func : v) {
+		std::cout << run_functions(func, x, y) << std::endl;
 	}
 }
