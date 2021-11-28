@@ -3,7 +3,7 @@
 #include <algorithm>
 
 
-void print_vector(std::vector <int>& mass) {
+void print_vector(const std::vector <int>& mass) {
 	for (int i : mass)
 	{
 		std::cout << i << ' ';
