@@ -18,14 +18,12 @@ int main() {
 		[](double x, double y) { return x + y; },
 		[](double x, double y) { return x - y; },
 		[](double x, double y) { return x * y; },
-		[](double x, double y) {
-			if (y != 0) return x / y;
-			else std::cout << "Zero division error\n";
-		}
+		[](double x, double y) { return x / y; }
 	};
 
 	std::cout << "Lambda functions results:" << std::endl;
-	for (std::function <double(double, double)> func : v) {
-		std::cout << run_functions(func, x, y) << std::endl;
+	for (auto i = 0U; i < v.size(); i++) {
+		if (i == 3 && y == 0) continue;
+		std::cout << run_functions(v[i], x, y) << std::endl;
 	}
 }
