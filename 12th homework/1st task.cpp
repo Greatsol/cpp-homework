@@ -1,23 +1,26 @@
 #include <iostream>
 
 
-template<unsigned N>
-struct factorial {
-	static const unsigned value = N * factorial<N - 1>::value;
-};
-template<>
-struct factorial<0> {
-	static const unsigned value = 1;
+template<int n, int k>
+struct BC {
+	static const int bc = BC<n - 1, k>::bc + BC<n - 1, k - 1>::bc;
 };
 
 
-template<unsigned N, unsigned K>
-struct C {
-	static const unsigned NK = N - K;
-	static const unsigned value = factorial<N>::value / factorial<K>::value / factorial<NK>::value;
+template<int n>
+struct BC<n, 0> {
+	static const int bc = 1;
 };
+template<int n>
+struct BC<n, n> {
+	static const int bc = 1;
+};
+
+
+template<int n, int k>
+static inline constexpr int bc = BC<n, k>::bc;
 
 
 int main() {
-	std::cout << C<5, 2>::value;
+	std::cout << bc<5, 2>;
 }
